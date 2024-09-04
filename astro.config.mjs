@@ -9,6 +9,4 @@ export default defineConfig({
   integrations: [tailwind(), react()],
 
   site: "https://landing-page.dev",
-
-  output: "hybrid",
 });
