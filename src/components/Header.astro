@@ -1,0 +1,24 @@
+---
+import Logo from "./Logo.astro";
+import Nav from "./Nav.astro";
+
+const {title} = Astro.props;
+---
+
+<header
+  class="bg-background-light dark:bg-background-dark opacity-90 shadow sticky top-0 z-40"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <Logo />
+      </div>
+
+      <!-- Desktop Nav and Theme Toggle -->
+      <div class="md:flex items-center space-x-4">
+        <Nav />
+      </div>
+    </div>
+  </div>
+</header>

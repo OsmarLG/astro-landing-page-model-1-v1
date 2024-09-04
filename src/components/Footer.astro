@@ -1,0 +1,93 @@
+---
+import {config} from "../config/config.ts";
+import {es} from "../langs/es.ts";
+
+const companyName = config.companyName;
+const companyLogo = config.companyLogo;
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark mt-auto"
+>
+  <div
+    class="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0 mt-10"
+  >
+    <!-- Logo and Company Info -->
+    <div class="flex flex-col items-center md:items-start space-y-4">
+      <img src={companyLogo.path} alt={companyLogo.alt} class="h-12 w-auto" />
+      <p class="text-sm">{companyName}</p>
+    </div>
+
+    <!-- Menus -->
+    <div class="flex justify-around w-full md:w-auto space-x-8">
+      <div class="flex flex-col items-center md:items-start space-y-2">
+        <h2 class="font-semibold">{es.main}</h2>
+        {
+          es.menu.map((item) => (
+            <a
+              href={item.href}
+              class="text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark text-sm"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-col items-center md:items-start space-y-2">
+        <h2 class="font-semibold">{es.services}</h2>
+        {
+          es.serviciosMenu.map((item) => (
+            <a
+              href={item.href}
+              class="text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark text-sm"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-col items-center md:items-start space-y-2">
+        <h2 class="font-semibold">{es.links}</h2>
+        {
+          es.enlacesMenu.map((item) => (
+            <a
+              href={item.href}
+              class="text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark text-sm"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="flex space-x-4">
+      {
+        es.socialLinks.map((social) => (
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark"
+          >
+            <i class={social.icon} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="bg-gray-400 dark:bg-transparent bg-opacity-30">
+    <div
+      class="mt-8 text-center text-sm text-text-light dark:text-text-dark p-4"
+    >
+      &copy; {currentYear}
+      {companyName}. {es.footer.text}
+    </div>
+  </div>
+</footer>

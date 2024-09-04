@@ -1,0 +1,9 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {es} from "../langs/es.ts";
+
+const {lang} = Astro.params;
+const translations = lang === "es" ? es : es;
+---
+
+<Layout title="Servicios" lang={lang} translations={translations} />

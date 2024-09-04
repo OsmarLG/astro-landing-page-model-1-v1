@@ -1,16 +1,22 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import {es} from "../langs/es.ts";
+import {config} from "../config/config.ts";
+import Hero from "../components/landing/Hero.astro";
+import Section1 from "../components/landing/Section1.astro";
 
+const companyName = config.companyName;
+
+const {lang} = Astro.params;
+const translations = lang === "es" ? es : es;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Inicio" lang={lang} translations={translations}>
+  <div class="mt-20 md:mt-0">
+    <Hero />
+  </div>
+
+  <div class="mt-40 md:mt-10">
+    <Section1 />
+  </div>
+</Layout>
