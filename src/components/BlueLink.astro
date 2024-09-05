@@ -1,0 +1,26 @@
+---
+import {config} from "../config/config.ts";
+---
+
+<div class="p-1 bg-blue-900 flex items-center justify-between">
+  <div>
+    <p class="text-white">
+      Power By: <span class="font-bold">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={config.bluelink.siteUrl}
+        >
+          {config.bluelink.siteName}
+        </a>
+      </span>
+    </p>
+  </div>
+  <div class="max-w-10">
+    <img
+      class="h-8 w-auto"
+      src={config.bluelink.logo}
+      alt={config.bluelink.siteName}
+    />
+  </div>
+</div>

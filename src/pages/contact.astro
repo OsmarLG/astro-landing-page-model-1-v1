@@ -1,9 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import {es} from "../langs/es.ts";
+import Hero from "../components/contact/Hero.astro";
 
 const {lang} = Astro.params;
 const translations = lang === "es" ? es : es;
 ---
 
-<Layout title="Contacto" lang={lang} translations={translations} />
+<Layout title="Contacto" lang={lang} translations={translations}>
+  <div class="mt-10">
+    <Hero />
+  </div>
+</Layout>

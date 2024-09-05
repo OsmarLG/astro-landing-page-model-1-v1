@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import {es} from "../langs/es.ts";
+import Section1 from "../components/about/Section1.astro";
+import SectionValues from "../components/about/SectionValues.astro";
+import Section3 from "../components/landing/Section3.astro";
+import Hero from "../components/about/Hero.astro";
+import MissionVision from "../components/about/MissionVision.astro";
 
 const {lang} = Astro.params;
 const translations = lang === "es" ? es : es;
@@ -8,6 +13,12 @@ const translations = lang === "es" ? es : es;
 
 <Layout title="Acerca de" lang={lang} translations={translations}>
   <div class="mt-10">
-    <h1>We</h1>
+    <Hero />
+    <Section1 />
+    <div class="my-4">
+      <MissionVision />
+    </div>
+    <SectionValues />
+    <Section3 />
   </div>
 </Layout>

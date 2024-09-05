@@ -1,9 +1,8 @@
 ---
 import {es} from "../langs/es.ts";
-import Logo from "./Logo.astro";
-import VisualUIConf from "./VisualUIConf.astro";
-
-const currentPath = Astro.url.pathname;
+import Desktop from "./Navs/Desktop.astro";
+import Mobile from "./Navs/Mobile.astro";
+import MobileMenuButton from "./Navs/MobileMenuButton.astro";
 ---
 
 <nav
@@ -13,113 +12,13 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
       <!-- Desktop Links -->
-      <div class="hidden md:flex space-x-8">
-        <!-- Espaciado entre los enlaces -->
-        {
-          es.menu.map((item) => (
-            <a
-              href={item.href}
-              class={`text-lg font-medium ${currentPath === item.href ? "text-primary-light dark:text-primary-light" : "text-text-light dark:text-text-dark"} hover:text-primary-light dark:hover:text-primary-dark`}
-            >
-              {item.name}
-            </a>
-          ))
-        }
-      </div>
-
-      <!-- Visual UI Config -->
-      <div class="hidden md:flex ml-8">
-        <!-- Agregar espacio a la izquierda -->
-        <VisualUIConf />
-      </div>
+      <Desktop es={es} />
 
       <!-- Mobile Menu Button -->
-      <div class="md:hidden flex items-center">
-        <button
-          id="menu-toggle"
-          class="text-text-light dark:text-text-dark focus:outline-none"
-        >
-          <svg
-            class="h-8 w-8"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
+      <MobileMenuButton />
     </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div
-    id="mobile-menu"
-    class="hidden fixed inset-0 bg-background-light bg-opacity-90 dark:bg-background-dark dark:bg-opacity-90 text-text-light dark:text-text-dark flex flex-col items-center justify-center z-50"
-  >
-    <button
-      id="close-menu"
-      class="absolute top-4 right-4 text-text-light dark:text-text-dark focus:outline-none"
-    >
-      <svg
-        class="h-8 w-8"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
-    <div
-      class="mb-5 p-2 hover:bg-black hover:opacity-50 hover:rounded-full hover:dark:bg-blue-500"
-    >
-      <Logo />
-    </div>
-
-    <!-- Mobile Links -->
-    {
-      es.menu.map((item) => (
-        <a
-          href={item.href}
-          class="block text-xl font-semibold text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark mb-4"
-        >
-          {item.name}
-        </a>
-      ))
-    }
-
-    <!-- Visual UI Config -->
-    <div class="mt-6">
-      <VisualUIConf />
-    </div>
-  </div>
+  <Mobile es={es} />
 </nav>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const closeMenu = document.getElementById("close-menu");
-
-    if (menuToggle && mobileMenu && closeMenu) {
-      menuToggle.addEventListener("click", function () {
-        mobileMenu.classList.remove("hidden");
-      });
-
-      closeMenu.addEventListener("click", function () {
-        mobileMenu.classList.add("hidden");
-      });
-    }
-  });
-</script>

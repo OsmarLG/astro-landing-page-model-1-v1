@@ -1,0 +1,26 @@
+---
+const {es} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+import VisualUIConf from "../VisualUIConf.astro";
+---
+
+<div class="hidden md:flex space-x-8">
+  <!-- Espaciado entre los enlaces -->
+  {
+    es.menu.map((item: {name: string; href: string}) => (
+      <a
+        href={item.href}
+        class={`text-lg font-medium ${currentPath === item.href ? "text-primary-light dark:text-primary-light" : "text-text-light dark:text-text-dark"} hover:text-primary-light dark:hover:text-primary-dark`}
+      >
+        {item.name}
+      </a>
+    ))
+  }
+</div>
+
+<!-- Visual UI Config -->
+<div class="hidden md:flex ml-8">
+  <!-- Agregar espacio a la izquierda -->
+  <VisualUIConf />
+</div>

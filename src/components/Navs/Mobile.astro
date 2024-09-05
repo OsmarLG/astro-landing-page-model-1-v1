@@ -1,0 +1,53 @@
+---
+const {es} = Astro.props;
+import Logo from "../Logo.astro";
+
+import VisualUIConf from "../VisualUIConf.astro";
+---
+
+<div
+  id="mobile-menu"
+  class="hidden fixed inset-0 bg-background-light bg-opacity-90 dark:bg-background-dark dark:bg-opacity-90 text-text-light dark:text-text-dark flex flex-col items-center justify-center z-50"
+>
+  <button
+    id="close-menu"
+    class="absolute top-4 right-4 text-text-light dark:text-text-dark focus:outline-none"
+  >
+    <svg
+      class="h-8 w-8"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <div
+    class="mb-5 p-2 hover:bg-black hover:opacity-50 hover:rounded-full hover:dark:bg-blue-500"
+  >
+    <Logo />
+  </div>
+
+  <!-- Mobile Links -->
+  {
+    es.menu.map((item: {name: string; href: string}) => (
+      <a
+        href={item.href}
+        class="block text-xl font-semibold text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark mb-4"
+      >
+        {item.name}
+      </a>
+    ))
+  }
+
+  <!-- Visual UI Config -->
+  <div class="mt-6">
+    <VisualUIConf />
+  </div>
+</div>

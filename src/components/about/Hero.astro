@@ -1,0 +1,29 @@
+---
+import {about} from "../../data/about"; // Importa el archivo de datos
+---
+
+<section
+  class="relative bg-cover bg-center bg-no-repeat"
+  style={`background-image: url(${about.hero.backgroundImage});`}
+>
+  <!-- Textura de fondo y ajuste de opacidad -->
+  <div class="absolute inset-0 bg-black opacity-20 bg-[url('/pattern.svg')]">
+  </div>
+
+  <!-- Difuminado del fondo -->
+  <div class="absolute inset-0 backdrop-blur-sm"></div>
+
+  <!-- Fondo para el texto con más contraste -->
+  <div class="relative py-20 bg-opacity-50 bg-black">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
+          {about.hero.title}
+        </h1>
+        <p class="mt-4 text-lg text-gray-300 sm:text-xl">
+          {about.hero.subtitle}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

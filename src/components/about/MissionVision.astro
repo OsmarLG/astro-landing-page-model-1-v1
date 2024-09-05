@@ -1,0 +1,71 @@
+---
+import {about} from "../../data/about"; // Importa los datos de about.ts
+---
+
+<section
+  class="relative py-20 bg-gray-100 dark:bg-gray-900 bg-cover bg-center shadow-lg"
+  style={`background-image: url(${about.missionVision.backgroundImage});`}
+>
+  <!-- Fondo oscuro con opacidad para el texto -->
+  <div
+    class="absolute inset-0 bg-gray-900 bg-opacity-40 dark:bg-black dark:bg-opacity-60"
+  >
+  </div>
+
+  <!-- Contenido de Misión y Visión -->
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Misión -->
+      <div
+        class="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg relative overflow-hidden"
+      >
+        <!-- Decorador en la esquina superior izquierda -->
+        <div
+          class="absolute top-0 left-0 w-16 h-1 bg-yellow-400 dark:bg-yellow-500"
+        >
+        </div>
+
+        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
+          {about.missionVision.missionTitle}
+        </h2>
+        <p
+          class="mt-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+        >
+          {about.missionVision.missionDescription}
+        </p>
+
+        <!-- Decorador en la esquina inferior derecha -->
+        <div
+          class="absolute bottom-0 right-0 w-16 h-1 bg-yellow-400 dark:bg-yellow-500"
+        >
+        </div>
+      </div>
+
+      <!-- Visión -->
+      <div
+        class="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg relative overflow-hidden"
+      >
+        <!-- Decorador en la esquina superior izquierda -->
+        <div
+          class="absolute top-0 left-0 w-16 h-1 bg-yellow-400 dark:bg-yellow-500"
+        >
+        </div>
+
+        <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white">
+          {about.missionVision.visionTitle}
+        </h2>
+        <p
+          class="mt-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
+        >
+          {about.missionVision.visionDescription}
+        </p>
+
+        <!-- Decorador en la esquina inferior derecha -->
+        <div
+          class="absolute bottom-0 right-0 w-16 h-1 bg-yellow-400 dark:bg-yellow-500"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

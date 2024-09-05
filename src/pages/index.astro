@@ -4,6 +4,9 @@ import {es} from "../langs/es.ts";
 import {config} from "../config/config.ts";
 import Hero from "../components/landing/Hero.astro";
 import Section1 from "../components/landing/Section1.astro";
+import Section2 from "../components/landing/Section2.astro";
+import Section3 from "../components/landing/Section3.astro";
+import Section4 from "../components/landing/Section4.astro";
 
 const companyName = config.companyName;
 
@@ -18,5 +21,8 @@ const translations = lang === "es" ? es : es;
 
   <div class="mt-40 md:mt-10">
     <Section1 />
+    <Section2 />
+    <Section3 />
+    <Section4 />
   </div>
 </Layout>

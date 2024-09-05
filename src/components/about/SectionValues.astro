@@ -1,0 +1,47 @@
+---
+import {about} from "../../data/about";
+---
+
+<section class="py-14 bg-white dark:bg-gray-900 sm:py-20 lg:py-28">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2
+        class="text-4xl font-extrabold leading-tight text-black dark:text-white sm:text-5xl lg:text-6xl"
+      >
+        {about.sectionValues.title}
+      </h2>
+      <p
+        class="max-w-lg mx-auto mt-6 text-lg leading-relaxed text-gray-600 dark:text-gray-300 sm:text-xl"
+      >
+        {about.sectionValues.description}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-12 mt-14 md:grid-cols-3 lg:mt-20">
+      {
+        about.sectionValues.values.map((value, index) => (
+          <div
+            data-key={`value-${index}`}
+            class="relative p-8 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex items-center justify-center w-16 h-16 mx-auto bg-white dark:bg-gray-700 rounded-full shadow-md mb-6">
+              <img
+                class="w-10 h-10"
+                src={value.icon}
+                alt={`Icon for ${value.title}`}
+              />
+            </div>
+            <h3 class="mt-4 text-2xl font-bold leading-tight text-black dark:text-white">
+              {value.title}
+            </h3>
+            <p class="mt-4 text-lg text-gray-700 dark:text-gray-400">
+              {value.description}
+            </p>
+
+            <div class="absolute top-6 right-6 w-8 h-8 bg-yellow-300 rounded-full opacity-40" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

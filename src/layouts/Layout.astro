@@ -3,6 +3,7 @@ import {config} from "../config/config.ts";
 import type {LayoutProps} from "../types/LayoutProps";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import BlueLink from "../components/BlueLink.astro";
 
 const companyName = config.companyName;
 const {title, description}: LayoutProps = Astro.props;
@@ -30,5 +31,6 @@ const {title, description}: LayoutProps = Astro.props;
       <slot />
     </main>
     <Footer />
+    <BlueLink />
   </body>
 </html>

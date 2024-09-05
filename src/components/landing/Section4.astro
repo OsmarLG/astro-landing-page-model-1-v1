@@ -1,0 +1,23 @@
+---
+import {main} from "../../data/main";
+---
+
+<section class="py-10 bg-gray-50 dark:bg-gray-900 sm:py-16 lg:py-24">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div
+      class="grid items-center grid-cols-2 gap-10 sm:gap-y-16 sm:grid-cols-3 xl:grid-cols-6"
+    >
+      {
+        main.section4.companies.map((company, index) => (
+          <div data-key={`value-${index}`}>
+            <img
+              class="object-contain w-auto mx-auto h-14 dark:invert"
+              src={company.companyLogoUrl}
+              alt={company.companyLogoAlt}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
