@@ -1,8 +1,15 @@
 ---
 const {es} = Astro.props;
 import Logo from "../Logo.astro";
-
 import VisualUIConf from "../VisualUIConf.astro";
+import ContactMenu from "./ContactMenu.astro";
+import SocialLinksMenu from "./SocialLinksMenu.astro";
+
+// Define los tipos para el menú y los enlaces sociales
+interface MenuItem {
+  name: string;
+  href: string;
+}
 ---
 
 <div
@@ -11,7 +18,7 @@ import VisualUIConf from "../VisualUIConf.astro";
 >
   <button
     id="close-menu"
-    class="absolute top-4 right-4 text-text-light dark:text-text-dark focus:outline-none"
+    class="absolute top-2 right-4 text-text-light dark:text-text-dark focus:outline-none"
   >
     <svg
       class="h-8 w-8"
@@ -29,14 +36,14 @@ import VisualUIConf from "../VisualUIConf.astro";
   </button>
 
   <div
-    class="mb-5 p-2 hover:bg-black hover:opacity-50 hover:rounded-full hover:dark:bg-blue-500"
+    class="mb-2 p-2 hover:bg-black hover:opacity-50 hover:rounded-full hover:dark:bg-blue-500"
   >
     <Logo />
   </div>
 
   <!-- Mobile Links -->
   {
-    es.menu.map((item: {name: string; href: string}) => (
+    es.menu.map((item: MenuItem) => (
       <a
         href={item.href}
         class="block text-xl font-semibold text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark mb-4"
@@ -47,7 +54,16 @@ import VisualUIConf from "../VisualUIConf.astro";
   }
 
   <!-- Visual UI Config -->
-  <div class="mt-6">
+  <div class="mt-2">
     <VisualUIConf />
+  </div>
+
+  <!-- Parte de abajo -->
+  <div class="bg-gray-200 dark:bg-gray-800 mt-5">
+    <!-- Información de contacto -->
+    <ContactMenu />
+
+    <!-- Redes sociales -->
+    <SocialLinksMenu es={es} />
   </div>
 </div>

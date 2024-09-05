@@ -22,15 +22,45 @@ const {title, description}: LayoutProps = Astro.props;
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       crossorigin="anonymous"
     />
+
+    <!-- Cargar Swup desde CDN -->
+    <script src="https://unpkg.com/swup@4"></script>
+
+    <style>
+      /* Transición de entrada/salida */
+      html.is-animating .transition-fade {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      html.is-leaving .transition-fade {
+        opacity: 0;
+      }
+
+      html.is-rendering .transition-fade {
+        opacity: 1;
+        transition: opacity 0.4s ease;
+      }
+    </style>
   </head>
   <body
     class="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col min-h-screen"
   >
     <Header title={title} />
-    <main class="flex-grow mx-auto container md:mb-10">
+    <main
+      id="swup"
+      class="transition-fade flex-grow mx-auto container md:mb-10"
+    >
       <slot />
     </main>
     <Footer />
     <BlueLink />
   </body>
+
+  <!-- Inicializar Swup -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const swup = new Swup();
+    });
+  </script>
 </html>

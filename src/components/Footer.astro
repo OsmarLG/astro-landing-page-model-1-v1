@@ -1,6 +1,8 @@
 ---
 import {config} from "../config/config.ts";
 import {es} from "../langs/es.ts";
+import ContactMenu from "./Navs/ContactMenu.astro";
+import SocialLinksMenu from "./Navs/SocialLinksMenu.astro";
 
 const companyName = config.companyName;
 const companyLogo = config.companyLogo;
@@ -65,7 +67,11 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- Social Links -->
-    <div class="flex space-x-4">
+    <ContactMenu />
+    <!-- Social Links -->
+    <SocialLinksMenu es={es} />
+
+    <!-- <div class="flex space-x-4">
       {
         es.socialLinks.map((social) => (
           <a
@@ -78,7 +84,7 @@ const currentYear = new Date().getFullYear();
           </a>
         ))
       }
-    </div>
+    </div> -->
   </div>
 
   <!-- Copyright -->
