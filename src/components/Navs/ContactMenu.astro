@@ -1,22 +1,39 @@
 ---
 import {config} from "../../config/config.ts";
+import {about} from "../../data/about.ts";
 import {es} from "../../langs/es.ts";
 ---
 
 <div class="mt-1 mx-3">
   <h3 class="font-bold">{es.menu[3].name}</h3>
   <div class="space-y-4">
+    <!-- WhatsApp link -->
     <div class="flex items-center space-x-3">
       <i class="fab fa-whatsapp text-green-500"></i>
-      <span>{config.companyNumber}</span>
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href={about.section1.socialLink.url}
+        class="text-green-500 hover:underline"
+      >
+        <span>{config.companyNumber}</span>
+      </a>
     </div>
+
+    <!-- Mail link -->
     <div class="flex items-center space-x-3">
       <i class="fas fa-envelope text-blue-500"></i>
-      <span>{config.companyEmail}</span>
+      <a
+        href={`mailto:${config.companyEmail}`}
+        class="text-blue-500 hover:underline"
+      >
+        {config.companyEmail}
+      </a>
     </div>
+
+    <!-- Address link to Google Maps -->
     <div class="flex items-center space-x-3 cursor-pointer">
       <i class="fas fa-map-marker-alt text-red-500"></i>
-      <!-- Dirección como un enlace a Google Maps -->
       <a
         href={config.companyAddressLink}
         target="_blank"

@@ -7,6 +7,7 @@ import Section1 from "../components/landing/Section1.astro";
 import Section2 from "../components/landing/Section2.astro";
 import Section3 from "../components/landing/Section3.astro";
 import Section4 from "../components/landing/Section4.astro";
+import Numbers from "../components/landing/Numbers.astro";
 
 const companyName = config.companyName;
 
@@ -24,5 +25,6 @@ const translations = lang === "es" ? es : es;
     <Section2 />
     <Section3 />
     <Section4 />
+    <Numbers />
   </div>
 </Layout>

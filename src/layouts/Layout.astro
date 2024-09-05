@@ -22,15 +22,78 @@ const {title, description}: LayoutProps = Astro.props;
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       crossorigin="anonymous"
     />
+    <style>
+      /* Estilo para el fade */
+      .fade {
+        opacity: 0;
+        animation: fadeIn 0.2s ease forwards;
+      }
+
+      /* Animación para el fade */
+      @keyframes fadeIn {
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Desvanecer las imágenes de forma más lenta */
+      .fade-image {
+        opacity: 0;
+        animation: fadeInImage 0.2s ease forwards;
+      }
+
+      @keyframes fadeInImage {
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Fade-out para cuando se cambie de página */
+      .fade-out {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+    </style>
   </head>
   <body
-    class="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col min-h-screen"
+    class="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col min-h-screen fade"
   >
     <Header title={title} />
-    <main class="flex-grow mx-auto container md:mb-10">
+    <main class="flex-grow mx-auto container md:mb-10 fade">
       <slot />
     </main>
     <Footer />
     <BlueLink />
   </body>
+
+  <!-- Script para fade-out en imágenes y cambio de páginas -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const body = document.querySelector("body");
+
+      // Añadir evento de click a todos los enlaces
+      document.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault(); // Evitar la navegación instantánea
+          const href = this.getAttribute("href");
+
+          // Verifica si el body existe y el href no es nulo
+          if (body && href) {
+            // Aplicar clase de fade-out
+            body.classList.add("fade-out");
+
+            // Esperar a que termine la animación antes de cambiar la página
+            setTimeout(() => {
+              window.location.href = href;
+            }, 30); // Tiempo de la animación
+          }
+        });
+      });
+
+      // Aplicar el efecto de fade-in a todas las imágenes
+      document.querySelectorAll("img").forEach((img) => {
+        img.classList.add("fade-image");
+      });
+    });
+  </script>
 </html>
