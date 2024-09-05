@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ConsultingService from "../../components/services/ConsultingService.astro";
+import Section4 from "../../components/landing/Section4.astro";
+
+const title = "Consultoría";
+const description = "Ofrecemos servicios de consultoría en tecnología.";
+---
+
+<Layout title={title} description={description}>
+  <ConsultingService title={title} />
+  <Section4 />
+</Layout>

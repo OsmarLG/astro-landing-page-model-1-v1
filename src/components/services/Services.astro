@@ -1,0 +1,149 @@
+---
+import {es} from "../../langs/es.ts";
+---
+
+<section class="py-10 bg-gray-100 dark:bg-gray-900 sm:py-16 lg:py-24">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div
+      class="grid grid-cols-1 gap-12 text-center sm:grid-cols-2 md:grid-cols-3 lg:gap-y-16"
+    >
+      <!-- Consultoría -->
+      <div
+        class="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-blue-500 dark:border-blue-400"
+      >
+        <div class="relative flex items-center justify-center mx-auto mb-6">
+          <svg
+            class="text-blue-100 dark:text-blue-900"
+            width="72"
+            height="75"
+            viewBox="0 0 72 75"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M63.6911 28.8569C68.0911 48.8121 74.6037 61.2674 53.2349 65.9792C31.8661 70.6909 11.6224 61.2632 7.22232 41.308C2.82229 21.3528 3.6607 12.3967 25.0295 7.68503C46.3982 2.97331 59.2911 8.90171 63.6911 28.8569Z"
+            ></path>
+          </svg>
+          <svg
+            class="absolute text-blue-600 w-9 h-9 dark:text-blue-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="mt-8 text-lg font-semibold text-black dark:text-white">
+          {es.serviciosMenu[0].name}
+        </h3>
+        <p class="mt-4 text-base text-gray-600 dark:text-gray-300">
+          Ofrecemos consultoría especializada en tecnología para ayudarte a
+          tomar mejores decisiones estratégicas.
+        </p>
+        <div class="mt-8">
+          <a href="/services/consulting" class="text-blue-500 hover:underline">
+            Ver más sobre Consultoría
+          </a>
+        </div>
+      </div>
+
+      <!-- Desarrollo Web -->
+      <div
+        class="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-orange-500 dark:border-orange-400"
+      >
+        <div class="relative flex items-center justify-center mx-auto mb-6">
+          <svg
+            class="text-orange-100 dark:text-orange-900"
+            width="62"
+            height="64"
+            viewBox="0 0 62 64"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M62 13.001C62 33.4355 53.9345 64.001 33.5 64.001C13.0655 64.001 0 50.435 0 30.0005C0 9.56596 2.56546 4.00021 23 4.00021C43.4345 4.00021 62 -7.43358 62 13.001Z"
+            ></path>
+          </svg>
+          <svg
+            class="absolute text-orange-600 w-9 h-9 dark:text-orange-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M12 4v4h4v4h-4v4h-4v-4H4V8h4V4z"></path>
+          </svg>
+        </div>
+        <h3 class="mt-8 text-lg font-semibold text-black dark:text-white">
+          {es.serviciosMenu[1].name}
+        </h3>
+        <p class="mt-4 text-base text-gray-600 dark:text-gray-300">
+          Desarrollo de sitios web y aplicaciones modernas, optimizadas para
+          rendimiento y seguridad.
+        </p>
+        <div class="mt-8">
+          <a
+            href="/services/web-development"
+            class="text-blue-500 hover:underline"
+          >
+            Ver más sobre Desarrollo de Sitios Web
+          </a>
+        </div>
+      </div>
+
+      <!-- SEO -->
+      <div
+        class="relative p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border-l-4 border-green-500 dark:border-green-400"
+      >
+        <div class="relative flex items-center justify-center mx-auto mb-6">
+          <svg
+            class="text-green-100 dark:text-green-900"
+            width="66"
+            height="68"
+            viewBox="0 0 66 68"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M65.5 30C65.5 50.4345 46.4345 68 26 68C5.56546 68 0 50.4345 0 30C0 9.56546 12.5655 0 33 0C53.4345 0 65.5 9.56546 65.5 30Z"
+            ></path>
+          </svg>
+          <svg
+            class="absolute text-green-600 w-9 h-9 dark:text-green-300"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M12 2l4.5 10H13l-1 4.5L8 12H6l4-8h2z"></path>
+          </svg>
+        </div>
+        <h3 class="mt-8 text-lg font-semibold text-black dark:text-white">
+          {es.serviciosMenu[2].name}
+        </h3>
+        <p class="mt-4 text-base text-gray-600 dark:text-gray-300">
+          Servicios SEO para optimizar la visibilidad y posicionamiento de tu
+          sitio en motores de búsqueda.
+        </p>
+        <div class="mt-8">
+          <a href="/services/seo" class="text-blue-500 hover:underline">
+            Ver más sobre SEO
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

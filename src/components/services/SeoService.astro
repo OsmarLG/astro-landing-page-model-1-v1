@@ -1,0 +1,54 @@
+---
+import CallToActionContact from "../buttons/CallToActionContact.astro";
+const {title} = Astro.props;
+---
+
+<section class="py-16 bg-gray-50 dark:bg-gray-900">
+  <div class="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8">
+    <div class="grid items-center gap-y-10 gap-x-10 md:grid-cols-2">
+      <!-- Sección de las imágenes ajustadas para visualización clara -->
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <img
+            class="object-cover w-full h-auto rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105"
+            src="https://images.pexels.com/photos/270669/pexels-photo-270669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="SEO services"
+          />
+        </div>
+        <div>
+          <img
+            class="object-cover w-full h-auto rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105"
+            src="https://images.pexels.com/photos/3182754/pexels-photo-3182754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="SEO strategies"
+          />
+        </div>
+      </div>
+
+      <!-- Sección de texto explicativo -->
+      <div>
+        <h2
+          class="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl mt-6"
+        >
+          {title}
+        </h2>
+        <p
+          class="mt-4 text-base leading-relaxed text-gray-600 dark:text-gray-300"
+        >
+          Ofrecemos servicios SEO especializados para mejorar la visibilidad de
+          tu sitio web en los motores de búsqueda, ayudando a posicionar tu
+          contenido de manera eficiente.
+        </p>
+        <ul class="list-disc pl-6 mt-6 text-gray-700 dark:text-gray-300">
+          <li>Análisis de palabras clave y optimización.</li>
+          <li>Estrategias para mejorar la autoridad del sitio.</li>
+          <li>Optimización para dispositivos móviles.</li>
+          <li>Soporte técnico y seguimiento continuo.</li>
+        </ul>
+
+        <div class="mt-8">
+          <CallToActionContact />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -8,9 +8,9 @@ export const es = {
     {name: "Contacto", href: "/contact"},
   ],
   serviciosMenu: [
-    {name: "Consultoría", href: "/services#consulting"},
-    {name: "Desarrollo Web", href: "/services#web-development"},
-    {name: "SEO", href: "/services#seo"},
+    {name: "Consultoría", href: "/services/consulting"},
+    {name: "Desarrollo Web", href: "/services/web-development"},
+    {name: "SEO", href: "/services/seo"},
   ],
   enlacesMenu: [
     {name: "Blog", href: "/blog"},

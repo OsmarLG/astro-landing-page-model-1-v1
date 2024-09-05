@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import WebDevelopmentService from "../../components/services/WebDevelopmentService.astro";
+import Section4 from "../../components/landing/Section4.astro";
+
+const title = "Desarrollo Web";
+const description = "Ofrecemos servicios de desarrollo web.";
+---
+
+<Layout title={title} description={description}>
+  <WebDevelopmentService title={title} />
+  <Section4 />
+</Layout>

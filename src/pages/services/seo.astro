@@ -1,0 +1,14 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SeoService from "../../components/services/SeoService.astro";
+import Section4 from "../../components/landing/Section4.astro";
+
+const title = "SEO";
+const description =
+  "Servicios SEO para optimizar la visibilidad de tu sitio en motores de búsqueda.";
+---
+
+<Layout title={title} description={description}>
+  <SeoService title={title} />
+  <Section4 />
+</Layout>
