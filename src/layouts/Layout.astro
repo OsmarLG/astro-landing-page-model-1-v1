@@ -22,45 +22,63 @@ const {title, description}: LayoutProps = Astro.props;
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       crossorigin="anonymous"
     />
-
-    <!-- Cargar Swup desde CDN -->
-    <script src="https://unpkg.com/swup@4"></script>
-
-    <style>
-      /* Transición de entrada/salida */
-      html.is-animating .transition-fade {
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      html.is-leaving .transition-fade {
-        opacity: 0;
-      }
-
-      html.is-rendering .transition-fade {
-        opacity: 1;
-        transition: opacity 0.4s ease;
-      }
-    </style>
   </head>
   <body
     class="font-sans bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col min-h-screen"
   >
     <Header title={title} />
-    <main
-      id="swup"
-      class="transition-fade flex-grow mx-auto container md:mb-10"
-    >
+    <main class="flex-grow mx-auto container md:mb-10">
       <slot />
     </main>
     <Footer />
     <BlueLink />
-  </body>
 
-  <!-- Inicializar Swup -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const swup = new Swup();
-    });
-  </script>
+    <style>
+      /* Estilos de transición */
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fade-out {
+        opacity: 1;
+        animation: fadeOut 0.2s forwards;
+      }
+
+      @keyframes fadeOut {
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const body = document.body;
+
+        // Agrega la clase de fade-in al cargar la página
+        body.classList.add("fade-in");
+
+        // Escucha los enlaces para agregar la clase de fade-out antes de navegar
+        document.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault(); // Evita la navegación inmediata
+            body.classList.remove("fade-in");
+            body.classList.add("fade-out");
+
+            // Espera a que termine la animación antes de ir a la nueva página
+            setTimeout(() => {
+              window.location.href = link.href;
+            }, 200); // Duración de la animación (en ms)
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
