@@ -1,26 +1,33 @@
 ---
 const {es} = Astro.props;
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, ""); // Elimina la barra final si existe
+console.log("currentPath:", currentPath); // Verifica qué ruta estás obteniendo
+
 import VisualUIConf from "../VisualUIConf.astro";
 ---
 
 <div class="hidden md:flex space-x-8">
-  <!-- Espaciado entre los enlaces -->
   {
-    es.menu.map((item: {name: string; href: string}) => (
-      <a
-        href={item.href}
-        class={`text-lg font-medium ${currentPath === item.href ? "text-primary-light dark:text-primary-light" : "text-text-light dark:text-text-dark"} hover:text-primary-light dark:hover:text-primary-dark`}
-      >
-        {item.name}
-      </a>
-    ))
+    es.menu.map((item: {name: string; href: string}) => {
+      const itemHref = item.href.replace(/\/$/, ""); // Normaliza el href
+      return (
+        <a
+          href={item.href}
+          class={`text-lg font-medium ${
+            currentPath === itemHref
+              ? "text-primary-light dark:text-primary-light"
+              : "text-text-light dark:text-text-dark"
+          } hover:text-primary-light dark:hover:text-primary-dark`}
+        >
+          {item.name}
+        </a>
+      );
+    })
   }
 </div>
 
 <!-- Visual UI Config -->
 <div class="hidden md:flex ml-8">
-  <!-- Agregar espacio a la izquierda -->
   <VisualUIConf />
 </div>

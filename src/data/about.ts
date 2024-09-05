@@ -55,6 +55,6 @@ export const about = {
     visionTitle: "Nuestra Visión",
     visionDescription:
       "Convertirnos en líderes del sector tecnológico a nivel global, reconocidos por nuestra capacidad de innovar, adaptarnos al cambio y ofrecer soluciones que transformen el futuro. Buscamos ser una referencia en la industria, conocida por nuestra excelencia y nuestro compromiso con la sostenibilidad, el desarrollo tecnológico y el bienestar social.",
-    backgroundImage: "/images/mission-vision-bg.jpg", // Cambia a la imagen que prefieras
+    backgroundImage: "/favicon.svg", // Cambia a la imagen que prefieras
   },
 };
