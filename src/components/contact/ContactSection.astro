@@ -1,5 +1,6 @@
 ---
 import {config} from "../../config/config.ts";
+import {about} from "../../data/about.ts";
 ---
 
 <section
@@ -17,17 +18,12 @@ import {config} from "../../config/config.ts";
               Send us a message
             </h3>
 
-            <!-- <form
-              id="contactForm"
-              action="https://formspree.io/f/xeojdlwd"
-              method="POST"
-              class="mt-8"
-            > -->
             <form
               id="contactForm"
               action="https://formsubmit.co/osmar2001lg@gmail.com"
               method="POST"
               class="mt-8"
+              onsubmit="return validateForm()"
             >
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                 <div>
@@ -41,6 +37,8 @@ import {config} from "../../config/config.ts";
                       type="text"
                       name="name"
                       class="block w-full px-4 py-4 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300 transition-all duration-200 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-900 focus:outline-none focus:border-blue-600 focus:bg-white dark:focus:bg-gray-800"
+                      minlength="5"
+                      required
                     />
                   </div>
                 </div>
@@ -55,26 +53,9 @@ import {config} from "../../config/config.ts";
                     <input
                       type="email"
                       name="email"
-                      class="block
-                      w-full
-                      px-4
-                      py-4
-                      text-black
-                      dark:text-white
-                      placeholder-gray-500
-                      dark:placeholder-gray-300
-                      transition-all
-                      duration-200
-                      border
-                      border-gray-200
-                      dark:border-gray-700
-                      rounded-md
-                      bg-gray-50
-                      dark:bg-gray-900
-                      focus:outline-none
-                      focus:border-blue-600
-                      focus:bg-white
-                      dark:focus:bg-gray-800"
+                      id="email"
+                      class="block w-full px-4 py-4 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300 transition-all duration-200 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-900 focus:outline-none focus:border-blue-600 focus:bg-white dark:focus:bg-gray-800"
+                      required
                     />
                   </div>
                 </div>
@@ -89,7 +70,11 @@ import {config} from "../../config/config.ts";
                     <input
                       type="tel"
                       name="phone"
+                      id="phone"
+                      pattern="[0-9]{10,15}"
                       class="block w-full px-4 py-4 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300 transition-all duration-200 border border-gray-200 dark:border-gray-700 rounded-md bg-gray-50 dark:bg-gray-900 focus:outline-none focus:border-blue-600 focus:bg-white dark:focus:bg-gray-800"
+                      required
+                      title="Please enter only numbers, at least 10 digits."
                     />
                   </div>
                 </div>
@@ -119,7 +104,8 @@ import {config} from "../../config/config.ts";
                     <textarea
                       name="message"
                       class="block w-full px-4 py-4 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-300 transition-all duration-200 border border-gray-200 dark:border-gray-700 rounded-md resize-y bg-gray-50 dark:bg-gray-900 focus:outline-none focus:border-blue-600 focus:bg-white dark:focus:bg-gray-800"
-                      rows="4"></textarea>
+                      rows="4"
+                      required></textarea>
                   </div>
                 </div>
 
@@ -211,14 +197,18 @@ import {config} from "../../config/config.ts";
                   ></path>
                 </svg>
                 <div class="ml-3">
-                  <span
-                    class="block text-base text-gray-900 dark:text-gray-200"
+                  <a
+                    href={about.section1.socialLink.url}
+                    target="_blank"
+                    title={about.section1.socialLink.text}
+                    class="transition-all duration-200 text-green-500 hover:text-green-600 hover:underline"
                   >
-                    {config.companyNumber}
-                  </span>
+                    {about.section1.socialLink.type}
+                  </a>
                 </div>
               </div>
             </div>
+            <br />
 
             <div class="mt-8 lg:mt-auto">
               <iframe
@@ -237,3 +227,24 @@ import {config} from "../../config/config.ts";
     </div>
   </div>
 </section>
+
+<script>
+  function validateForm() {
+    const phone = (document.getElementById("phone") as HTMLInputElement).value;
+    const email = (document.getElementById("email") as HTMLInputElement).value;
+    const phonePattern = /^[0-9]{10,15}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!phonePattern.test(phone)) {
+      alert("Please enter a valid phone number (10-15 digits).");
+      return false;
+    }
+
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    return true;
+  }
+</script>
